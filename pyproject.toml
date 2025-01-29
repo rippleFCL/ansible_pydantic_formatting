@@ -1,0 +1,22 @@
+cock
+[tool.poetry]
+name = "ansible-pydantic-formatting"
+version = "0.1.0"
+description = "error formatting for ansible"
+authors = ["ripple <github@ripple.contact>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "ansible_pydantic_formatting" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+pydantic = "^2.10.6"
+ansible-core = "^2.18.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
