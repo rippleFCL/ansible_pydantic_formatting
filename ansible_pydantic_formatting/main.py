@@ -10,6 +10,8 @@ def parse_errors(e: ValidationError, name: str, var_name: str) -> str:
             schema_errors.append(f"{error['msg'].lower()} at {var_name}.{{unknown location}}")
             continue
         loc = (name, *error["loc"]) if name else error["loc"]
+        if error.get("ctx", {}).get("skip_end", False):
+            loc = loc[:-1]
         path = f"{var_name}"
         for _, pos in enumerate(loc):  # skip last
             if isinstance(pos, str):
