@@ -21,13 +21,13 @@ def parse_errors(e: ValidationError, name: str, var_name: str) -> str:
 
 
 @overload
-def validate_model[T: type[BaseModel]](model: T, data: Sequence[Any], var_name: str) -> list[T]: ...
+def validate_model[T: BaseModel](model: type[T], data: Sequence[Any], var_name: str) -> list[T]: ...
 
 @overload
-def validate_model[T: type[BaseModel]](model: T, data: dict[str, Any], var_name: str) -> dict[str, T]: ...
+def validate_model[T: BaseModel](model: type[T], data: dict[str, Any], var_name: str) -> dict[str, T]: ...
 
-def validate_model[T: type[BaseModel]](
-    model: T, data: dict[str, Any] | Sequence[Any], var_name: str
+def validate_model[T: BaseModel](
+    model: type[T], data: dict[str, Any] | Sequence[Any], var_name: str
 ) -> dict[str, T] | list[T]:
     name = ""
     try:
