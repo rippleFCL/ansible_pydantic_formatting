@@ -1,4 +1,3 @@
-cock
 [tool.poetry]
 name = "ansible-pydantic-formatting"
 version = "0.1.0"
